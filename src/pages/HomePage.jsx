@@ -1,10 +1,13 @@
+import { allFundraisers } from "../data";
+
 function HomePage() {
   return (
     <div>
-      <h1>Funding4Crowds</h1>
-      <p>This is the main landing page of our application.</p>
+      {allFundraisers.map((fundraiserData, key) => {
+        return <div key={key}>fundraiserData.title}</div>;
+      })}
     </div>
   );
-}
+
 
 export default HomePage;
