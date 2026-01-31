@@ -17,7 +17,8 @@ function NavBar() {
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/about" className="nav-link">About</Link>
           <Link to="/contact" className="nav-link">Contact</Link>
-
+          <Link to="/login">Log In</Link>
+          
           {/* Important CTA button */}
           <Link to="/start" className="btn-create">
             Create

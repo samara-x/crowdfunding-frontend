@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import FundraiserPage from './pages/FundraiserPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
+import LoginPage from "./pages/LoginPage.jsx";
 import NavBar from "./components/NavBar.jsx";
 
 
@@ -18,6 +19,7 @@ const myRouter = createBrowserRouter([
       { path: "/fundraiser/:id", element: <FundraiserPage /> },
       {path: "/aboutpage", element: <AboutPage /> },
       {path: "/contactpage", element: <ContactPage /> },
+      { path: "/login", element: <LoginPage /> },
     ],
   },
 ]);
