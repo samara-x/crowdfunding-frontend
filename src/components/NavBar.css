@@ -1,0 +1,127 @@
+/* NavBar.css – recommended version that matches the updated JSX */
+
+/* Reset / base */
+nav.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #4f46e5;                   /* indigo – change to your brand */
+  text-decoration: none;
+}
+
+.logo span {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #111827;
+}
+
+/* CTA button */
+.btn-create {
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-create:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+/* Mobile hamburger – hidden on desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* ────────────────────────────────────────
+   Mobile / responsive
+───────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;                    /* hidden by default */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* When mobile menu is open (controlled via JS class) */
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.mobile-open .nav-link,
+  .nav-links.mobile-open .btn-create {
+    padding: 14px 0;
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.mobile-open .btn-create {
+    margin-top: 12px;
+  }
+}
