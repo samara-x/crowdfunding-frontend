@@ -1,13 +1,20 @@
 // NavBar.jsx
 import { Link } from "react-router-dom";
-import "./NavBar.css";        
+import "./NavBar.css";    
+import useAuth from "../hooks/use-auth.js";    
 
 function NavBar() {
+    const {auth, setAuth} = useAuth();
+
+    const handleLogout = () => {
+        window.localStorage.removeItem("token");
+        setAuth({ token: null });
+    };
   return (
     <nav className="navbar">
       <div className="navbar-container">
 
-        {/* Logo / Brand */}
+        {/* Logo */}
         <Link to="/" className="logo">
           <span>funding</span>four 
         </Link>
@@ -17,9 +24,15 @@ function NavBar() {
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/about" className="nav-link">About</Link>
           <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/login">Log In</Link>
+          {auth.token ? (
+              <Link to="/" onClick={handleLogout}>
+                        Log Out
+                    </Link>
+                    ) : (
+                    <Link to="/login">Login</Link>
+                )}
           
-          {/* Important CTA button */}
+          {/* CTA button */}
           <Link to="/start" className="btn-create">
             Create
           </Link>

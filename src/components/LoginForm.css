@@ -1,0 +1,97 @@
+/* LoginForm.css – polished centered card version */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.login-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.login-header {
+  background: #6366f1;
+  color: white;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.login-header p {
+  margin: 8px 0 0;
+  opacity: 0.92;
+}
+
+.login-form {
+  padding: 28px 24px 36px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #6366f1;
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #4f46e5;
+}
+
+.login-footer {
+  text-align: center;
+  padding: 0 24px 28px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.login-footer a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}

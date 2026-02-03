@@ -62,7 +62,7 @@ function FundraiserPage() {
               e.g. updates, gallery, team, FAQ, etc. */}
         </div>
 
-        {/* Right / Sidebar – most important fundraising elements */}
+        {/* Right / Sidebar */}
         <div className="sidebar">
           <div className="progress-card">
             <div className="progress-header">
