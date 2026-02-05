@@ -1,0 +1,137 @@
+/* 404.css */
+
+:root {
+  /* Brand */
+  --color-primary: #2F4A5A;
+  --color-secondary: #C8B8A6;
+  --color-accent: #6F8F7A;
+  --color-accent-warm: #C46A4A;
+  --color-bg-main: #F6F7F6;
+  --color-bg-surface: #FFFFFF;
+  --color-border: #E3E6E4;
+  --color-text-primary: #1F2933;
+  --color-text-muted: #6B7280;
+  --color-text-inverse: #FFFFFF;
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
+
+.not-found-container {
+  min-height: 50vh; /* initial height was 100vh */
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--color-bg-main);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Large 404 title with gradient */
+.not-found-title {
+  font-size: clamp(5rem, 18vw, 12rem);
+  font-weight: 800; /* thinkness / boldness */
+  line-height: 0.9;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.06em;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 12px rgba(47, 74, 90, 0.15);
+}
+
+/* Supporting text */
+.not-found-text {
+  max-width: 36rem;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0 0 2.5rem;
+  opacity: 0.95;
+}
+
+.not-found-subtext {
+  font-size: 2rem;
+  color: var(--color-text-muted);
+  margin: 0 0 2.5rem;
+  max-width: 32rem;
+}
+
+.no-bullets {
+  list-style-type: none;
+}
+
+/* Big CTA button */
+.not-found-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-inverse);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(111, 143, 122, 0.25);
+  cursor: pointer;
+}
+
+.not-found-button:hover {
+  background: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(47, 74, 90, 0.35);
+}
+
+.not-found-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(47, 74, 90, 0.25);
+}
+
+/* Optional subtle illustration / emoji area */
+.not-found-illustration {
+  font-size: clamp(5rem, 15vw, 9rem);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+/* Fade-in animation on load */
+.not-found-container {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .not-found-title {
+    font-size: clamp(4rem, 16vw, 8rem);
+  }
+
+  .not-found-text,
+  .not-found-subtext {
+    font-size: 1.05rem;
+  }
+
+  .not-found-button {
+    padding: 0.9rem 2rem;
+    font-size: 1.05rem;
+  }
+}
