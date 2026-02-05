@@ -24,6 +24,8 @@ function NavBar() {
           <Link to="/HomePage" className="nav-link">Home</Link>
           <Link to="/AboutPage" className="nav-link">About</Link>
           <Link to="/ContactPage" className="nav-link">Contact</Link>
+          <Link to="/fundraiser" className="nav-link">Fundraisers</Link>
+          <Link to="/create-fundraiser" className="nav-link">Create</Link>
           {auth.token ? (
               <Link to="/" onClick={handleLogout}>
                         Log Out

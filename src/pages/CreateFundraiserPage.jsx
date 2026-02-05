@@ -1,14 +1,15 @@
-// NEED TO CHECK THROUGH THIS. src/pages/CreateFundraiser.jsx   (or src/components/CreateFundraiserForm.jsx)
+// src/pages/CreateFundraiser.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import postFundraiser from '../api/post-fundraiser';
-import './CreatePost.css'; // I NEED TO CREATE THIS CSS FILE
+import './CreateFundraiser.css';
 
-function PostPage() {
+function CreateFundraiser() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: '',
+    location: '',
     description: '',
     goal: '',
     image: 'https://via.placeholder.com/900x400?text=Your+Image+Here',
@@ -21,7 +22,7 @@ function PostPage() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
@@ -55,16 +56,15 @@ function PostPage() {
     try {
       const dataToSend = {
         ...formData,
-        goal: goalNum, // send as number
+        goal: goalNum,
       };
 
-      const response = await postFundraiser(dataToSend);
+      await postFundraiser(dataToSend);
 
       setSuccess('Fundraiser created successfully!');
       setTimeout(() => {
-        navigate('/'); // or '/fundraisers' / `/fundraiser/${response.id}`
+        navigate('/');
       }, 1500);
-
     } catch (err) {
       setError(err.message || 'Failed to create fundraiser. Please try again.');
       console.error(err);
@@ -76,9 +76,13 @@ function PostPage() {
   return (
     <div className="create-fundraiser-container">
       <div className="create-fundraiser-card">
-        <h1 className="create-title">Start a New Fundraiser</h1>
+        <h1 className="create-title">
+          <span className="title-line">You don’t need a crowd.</span>
+          <span className="title-line title-accent">Just a few good people.</span>
+        </h1>
+
         <p className="create-subtitle">
-          Share your story and let the community help make it happen.
+          From walks to workshops — post it and find your people.
         </p>
 
         {error && <div className="error-message">{error}</div>}
@@ -86,7 +90,9 @@ function PostPage() {
 
         <form onSubmit={handleSubmit} className="create-form">
           <div className="form-group">
-            <label htmlFor="title">Title *</label>
+            <label htmlFor="title" className="form-label">
+              Title *
+            </label>
             <input
               type="text"
               id="title"
@@ -101,7 +107,9 @@ function PostPage() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="description">Description *</label>
+            <label htmlFor="description" className="form-label">
+              Description *
+            </label>
             <textarea
               id="description"
               name="description"
@@ -116,7 +124,9 @@ function PostPage() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="goal">Funding Goal ($) *</label>
+            <label htmlFor="goal" className="form-label">
+              Funding Goal ($) *
+            </label>
             <input
               type="number"
               id="goal"
@@ -133,7 +143,9 @@ function PostPage() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="image">Image URL (optional)</label>
+            <label htmlFor="image" className="form-label">
+              Image URL (optional)
+            </label>
             <input
               type="url"
               id="image"
@@ -158,15 +170,13 @@ function PostPage() {
                 onChange={handleChange}
                 disabled={isLoading}
               />
-              <span>It's been posted!</span>
+              <span>
+                By checking this box you agree that your post will be open for others to see & contribute to.
+              </span>
             </label>
           </div>
 
-          <button
-            type="submit"
-            className="btn-submit"
-            disabled={isLoading}
-          >
+          <button type="submit" className="btn-submit" disabled={isLoading}>
             {isLoading ? 'Creating...' : 'Post!'}
           </button>
         </form>
@@ -174,5 +184,4 @@ function PostPage() {
     </div>
   );
 }
-
-export default PostPage;
+export default CreateFundraiser;

@@ -11,7 +11,7 @@ import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import LoginPage from "./pages/LoginPage.jsx";
 import SignUp from "./pages/SignUp.jsx";
-import PostPage from "./pages/PostPage.jsx";
+import CreateFundraiser from "./pages/CreateFundraiserPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 //import NavBar from "./components/NavBar.jsx";
 
@@ -25,7 +25,7 @@ const myRouter = createBrowserRouter([
       {path: "/contactpage", element: <ContactPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/sign-up", element: <SignUp /> },
-      { path: "/post", element: <PostPage /> },
+      { path: "/create-fundraiser", element: <CreateFundraiser /> },
       { path: "*", element: <NotFound /> }
     ]
   },
