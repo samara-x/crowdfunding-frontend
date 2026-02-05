@@ -1,5 +1,6 @@
-async function postSignup(username, password) {
+async function postCreateUser(username, email, password) {
   const url = `${import.meta.env.VITE_API_URL}/users/`;
+  
   const response = await fetch(url, {
     method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
     headers: {
@@ -25,4 +26,4 @@ async function postSignup(username, password) {
 
   return await response.json();
 }
-export default postSignup;
+export default postCreateUser;

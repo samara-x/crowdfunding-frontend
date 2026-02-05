@@ -33,7 +33,7 @@ function NavBar() {
                 )}
           
           {/* CTA button */}
-          <Link to="/start" className="btn-create">
+          <Link to="/sign-up" className="btn-create">
             Create
           </Link>
         </div>

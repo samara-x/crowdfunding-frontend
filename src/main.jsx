@@ -2,16 +2,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
-import Layout from './components/layout'
+import { AuthProvider } from "./components/AuthProvider.jsx";
+
+import Layout from './components/Layout.jsx'
 import HomePage from './pages/HomePage'
 import FundraiserPage from './pages/FundraiserPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import LoginPage from "./pages/LoginPage.jsx";
-//import SignUp from "./pages/SignUp.jsx";
+import SignUp from "./pages/SignUp.jsx";
 //import NavBar from "./components/NavBar.jsx";
-import { AuthProvider } from "./components/AuthProvider.jsx";
-
 
 const myRouter = createBrowserRouter([
   {
@@ -22,7 +22,8 @@ const myRouter = createBrowserRouter([
       {path: "/aboutpage", element: <AboutPage /> },
       {path: "/contactpage", element: <ContactPage /> },
       { path: "/login", element: <LoginPage /> },
-    ],
+      { path: "/sign-up", element: <SignUp /> },
+    ]
   },
 ]);
 
