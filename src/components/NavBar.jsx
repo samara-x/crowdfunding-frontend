@@ -15,15 +15,15 @@ function NavBar() {
       <div className="navbar-container">
 
         {/* Logo */}
-        <Link to="/" className="logo">
+        <Link to="/HomePage" className="logo">
           <span>funding</span>four 
         </Link>
 
         {/* Desktop navigation */}
         <div className="nav-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
+          <Link to="/HomePage" className="nav-link">Home</Link>
+          <Link to="/AboutPage" className="nav-link">About</Link>
+          <Link to="/ContactPage" className="nav-link">Contact</Link>
           {auth.token ? (
               <Link to="/" onClick={handleLogout}>
                         Log Out

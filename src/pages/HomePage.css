@@ -1,36 +1,50 @@
-/* HomePage.css */
+:root {
+  /* Brand */
+  --color-primary: #2F4A5A;
+  --color-secondary: #C8B8A6;
+  --color-accent: #6F8F7A;
+  --color-accent-warm: #C46A4A;
+  /* Neutrals */
+  --color-bg-main: #F6F7F6;
+  --color-bg-surface: #FFFFFF;
+  --color-border: #E3E6E4;
+  /* Text */
+  --color-text-primary: #1F2933;
+  --color-text-muted: #6B7280;
+  --color-text-inverse: #FFFFFF;
+  /* UI */
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
 
+/* Fundraiser list container */
 #fundraiser-list {
   --card-width: 340px;
   --card-max-width: 380px;
-  --gap: 24px;
+  --gap: 28px;
 
-  /* Reset and base layout */
   margin: 0 auto;
-  padding: 32px 16px;
-  max-width: 1400px;
+  padding: 40px 16px 60px;
+  max-width: 1440px;
   box-sizing: border-box;
+  background: var(--color-bg-main);
 
-  /* Grid layout for cards */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
   gap: var(--gap);
-
-  /* Optional: better spacing on very wide screens */
   justify-content: center;
 }
 
-/* ============================================= */
-/*     Fundraiser Card Styling                   */
-/* ============================================= */
-
+/* Individual fundraiser card */
 .fundraiser-card {
-  background: white;
-  border-radius: 12px;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
-              0 1px 4px rgba(0, 0, 0, 0.04);
-  transition: all 0.22s ease;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.28s ease;
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -39,17 +53,17 @@
 }
 
 .fundraiser-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12),
-              0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
+  border-color: var(--color-accent);
 }
 
-/* Image container */
+/* Image */
 .card-image {
   width: 100%;
-  aspect-ratio: 4 / 3;           /* common crowdfunding ratio */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  background-color: #f0f2f5;
+  background-color: #f8f9fa; /* light fallback */
 }
 
 .card-image img {
@@ -57,22 +71,28 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.fundraiser-card:hover .card-image img {
+  transform: scale(1.04);
 }
 
 /* Content area */
 .card-content {
-  padding: 20px 22px;
+  padding: 24px 22px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .card-title {
-  font-size: 1.22rem;
-  font-weight: 600;
-  line-height: 1.38;
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1.35;
   margin: 0;
+  color: var(--color-text-primary);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -80,9 +100,9 @@
 }
 
 .card-description {
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: #555;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -91,73 +111,83 @@
   flex-grow: 1;
 }
 
-/* Progress & stats section */
+/* Progress & stats */
 .card-meta {
-  margin-top: 12px;
+  margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--color-border);
 }
 
 .progress-bar {
-  height: 8px;
-  background: #e0e0e0;
-  border-radius: 4px;
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .progress-fill {
   height: 100%;
-  background: #4caf50;           /* green - can be dynamic later */
-  border-radius: 4px;
-  width: 0%;                     /* controlled via inline style or props */
-  transition: width 0.6s ease;
+  background: var(--color-accent); /* soft green accent */
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.7s ease;
 }
 
 .stats {
   display: flex;
   justify-content: space-between;
-  font-size: 0.92rem;
-  color: #444;
+  align-items: center;
+  font-size: 0.94rem;
+  color: var(--color-text-muted);
 }
 
 .amount-raised {
-  font-weight: 600;
-  color: #222;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-size: 1.15rem;
 }
 
 .goal {
-  color: #777;
+  color: var(--color-text-muted);
 }
 
 .days-left {
-  color: #e74c3c;                /* red for urgency */
-  font-weight: 500;
+  color: var(--color-accent-warm); /* warm accent for urgency */
+  font-weight: 600;
 }
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
   #fundraiser-list {
     --card-width: 100%;
-    padding: 20px 12px;
+    padding: 24px 12px;
     gap: 20px;
   }
 
   .card-content {
-    padding: 18px;
+    padding: 20px;
   }
 
   .card-title {
-    font-size: 1.15rem;
+    font-size: 1.18rem;
+  }
+
+  .stats {
+    font-size: 0.9rem;
+  }
+
+  .amount-raised {
+    font-size: 1.08rem;
   }
 }
 
-/* Optional: when there are very few cards */
+/* When only one card (center) */
 #fundraiser-list:has(> :only-child) {
   display: flex;
   justify-content: center;
 }
 
 #fundraiser-list:has(> :only-child) .fundraiser-card {
-  max-width: 420px;
+  max-width: 460px;
 }

@@ -2,62 +2,116 @@ import { useState } from "react";
 import postLogin from "../api/post-login.js";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/use-auth.js";
+import "./LoginForm.css";
 
 function LoginForm() {
-    const navigate = useNavigate();
-    const {auth, setAuth} = useAuth();
+  const navigate = useNavigate();
+  const { setAuth } = useAuth();
 
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: ""
-    });
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
 
-    const handleChange = (event) => {
-        const { id, value } = event.target;
-        setCredentials((prevCredentials) => ({
-            ...prevCredentials,
-            [id]: value
-        }));
-    };
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (credentials.username && credentials.password) {
-            postLogin(credentials.username, credentials.password)
-                .then((data) => {
-                    window.localStorage.setItem("token", data.token);
-                    setAuth({ token: data.token });
-                    navigate("/");
-                    console.log("Login successful:", data);
-                })
-                .catch((error) => {
-                    console.error("Login failed:", error);
-                });
-        }
-    };
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setCredentials((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+    setError(""); // clear error when typing
+  };
 
-    // if the above is failing or has an error, try replacing with
-    // const handleSubmit = (event) => {
-    //    event.preventDefault();
-    //   if (credentials.username && credentials.password) {
-    //        postLogin().then((response) => {
-    //            window.localStorage.setItem("token", response.token);
-    // https://github.com/SheCodesAus/PlusLessonContent/blob/main/4_JS_and_React/fetch_and_post/fetch_and_post.md#1----the-login-page-
-return (
-    <form>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter username" onChange={handleChange} />
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Submitting login form with:", credentials);
+
+    setError("");
+    setIsLoading(true);
+
+    if (!credentials.username || !credentials.password) {
+      setError("Please fill in both fields");
+      setIsLoading(false);
+      return;
+    }
+
+    postLogin(credentials.username, credentials.password)
+      .then((data) => {
+        window.localStorage.setItem("token", data.token);
+        setAuth({ token: data.token });
+        navigate("/");
+        console.log("Login successful:", data);
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+        setError(
+          error.message ||
+            "Oops! Login failed. Please check your username and password."
+        );
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  return (
+  <div className="login-container">
+    <div className="login-card">
+      <h1 className="login-title">Welcome back</h1>
+      <p className="login-subtitle">Sign in to continue finding your people</p>
+
+      {error && <div className="error-message">{error}</div>}
+
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username" className="form-label">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter username"
+            value={credentials.username}
+            onChange={handleChange}
+            className="form-input"
+            required
+            autoFocus
+            disabled={isLoading}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="password" className="form-label">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter password"
+            value={credentials.password}
+            onChange={handleChange}
+            className="form-input"
+            required
+            disabled={isLoading}
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="btn-submit"
+          disabled={isLoading}
+        >
+          {isLoading ? "Signing in..." : "Sign In"}
+        </button>
+      </form>
+
+      <div className="login-footer">
+        <p>
+          New here? <a href="/signup">Create an account</a>
+        </p>
       </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter password" onChange={handleChange} />
-      </div>
-      <button type="submit" onClick={handleSubmit}>
-        Login
-      </button>
-    </form>
-  );
+    </div>
+  </div>
+);
 }
 
 export default LoginForm;
