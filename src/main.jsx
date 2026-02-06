@@ -19,10 +19,10 @@ const myRouter = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{path: "/", element: <HomePage /> },
+    children: [{path: "/", element: <HomePage /> }, // this is the defauult home page
       { path: "/fundraiser/:id", element: <FundraiserPage /> },
-      {path: "/aboutpage", element: <AboutPage /> },
-      {path: "/contactpage", element: <ContactPage /> },
+      {path: "/about", element: <AboutPage /> },
+      {path: "/contact", element: <ContactPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/sign-up", element: <SignUp /> },
       { path: "/create-fundraiser", element: <CreateFundraiser /> },
