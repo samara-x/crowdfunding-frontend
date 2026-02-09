@@ -6,7 +6,7 @@ import PledgeForm from "../components/PledgeForm";
 function FundraiserPage() {
   const { id } = useParams();
 
-  const { fundraiser, isLoading, error } = useFundraiser(id);
+  const { fundraiser, isLoading, error, refetch } = useFundraiser(id);
 
   console.log("isLoading:", isLoading);
 
@@ -80,7 +80,7 @@ function FundraiserPage() {
         {fundraiser.is_open ? (
           <PledgeForm
             fundraiserId={fundraiser.id}
-            onPledgeSuccess={() => window.location.reload()}
+            onPledgeSuccess={refetch}
           />
         ) : (
           <div className="closed-notice">
