@@ -1,7 +1,6 @@
 //TO DO - NEED TO TEST THIS FUNCTION //
 async function postCreateFundraiser(data) {
   const url = `${import.meta.env.VITE_API_URL}/fundraisers/`;
-
   const token = localStorage.getItem("token");
 
   const response = await fetch(url, {
@@ -22,7 +21,7 @@ async function postCreateFundraiser(data) {
   });
   
 console.log("Data sent to postFundraiser:", data);
-console.log("Response from postFundraiser:", response);
+console.log("Response from postFundraiser:", response.status);
 
   if (!response.ok) {
     const fallbackError = `Error trying to post fundraiser`;

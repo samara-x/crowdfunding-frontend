@@ -16,12 +16,14 @@ function CreateFundraiser() {
     is_open: true,
   });
 
+console.log('Form data state:', formData);
+
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked } = event.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -30,7 +32,7 @@ function CreateFundraiser() {
   };
 
   const handleSubmit = async (event) => {
-    e.preventDefault();
+    event.preventDefault();
     setError('');
     setSuccess('');
     setIsLoading(true);
@@ -60,6 +62,8 @@ function CreateFundraiser() {
       };
 
       await postFundraiser(dataToSend);
+
+console.log('Fundraiser created successfully with data:', dataToSend);
 
       // if the above doesn't work I had also written it out
       // 
