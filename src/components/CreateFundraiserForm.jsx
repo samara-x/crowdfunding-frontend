@@ -16,8 +16,6 @@ function CreateFundraiser() {
     is_open: true,
   });
 
-console.log('Form data state:', formData);
-
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -79,10 +77,10 @@ console.log('Form data state:', formData);
       setTimeout(() => {
         navigate('/', { state: { refresh: true }});
       }, 1800); //this delays the load time
-      
-    } catch (err) {
-      setError(err.message || 'Failed to create fundraiser. Please try again.');
-      console.error(err);
+
+    } catch (error) {
+      setError(error.message || 'Failed to create fundraiser. Please try again.');
+      console.error(error);
     } finally {
       setIsLoading(false);
     }

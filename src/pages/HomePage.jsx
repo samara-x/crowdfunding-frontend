@@ -2,6 +2,7 @@ import useFundraisers from "../hooks/use-fundraisers";
 import FundraiserCard from "../components/FundraiserCard";
 import "./HomePage.css";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function HomePage() {
     const location = useLocation();
@@ -14,7 +15,7 @@ function HomePage() {
             refetch();
         }
     }, [location.state?.justCreated]);
-    
+
     if (isLoading) {
         return <div>Page is loading...</div>;
     }
