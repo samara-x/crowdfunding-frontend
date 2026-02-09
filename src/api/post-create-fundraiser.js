@@ -1,20 +1,28 @@
-//NEED TO TEST THIS FUNCTION
-async function postFundraiser(data) {
+//TO DO - NEED TO TEST THIS FUNCTION //
+async function postCreateFundraiser(data) {
   const url = `${import.meta.env.VITE_API_URL}/fundraisers/`;
+
+  const token = localStorage.getItem("token");
+
   const response = await fetch(url, {
-    method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization" : `Token ${token}`
     },
+
     body: JSON.stringify({
+      // Removed "user: f- back ends sets "owner" from token
       "title": data.title,
-      "location": data.location,
       "description": data.description,
-      "goal": data.goalAmount,
-      "image_url": data.imageUrl,
+      "goal": data.goal,
+      "image": data.image,
       "is_open": data.isOpen
     }),
   });
+  
+console.log("Data sent to postFundraiser:", data);
+console.log("Response from postFundraiser:", response);
 
   if (!response.ok) {
     const fallbackError = `Error trying to post fundraiser`;
@@ -30,4 +38,4 @@ async function postFundraiser(data) {
   return await response.json();
 }
 
-export default postFundraiser;
+export default postCreateFundraiser;

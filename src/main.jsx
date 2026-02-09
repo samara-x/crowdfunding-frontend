@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import CreateFundraiser from "./pages/CreateFundraiserPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import PledgeForm from './components/PledgeForm.jsx';
 //import NavBar from "./components/NavBar.jsx";
 
 const myRouter = createBrowserRouter([
@@ -26,6 +27,7 @@ const myRouter = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/sign-up", element: <SignUp /> },
       { path: "/create-fundraiser", element: <CreateFundraiser /> },
+      { path: "/pledge", element: <PledgeForm /> },
       { path: "*", element: <NotFound /> }
     ]
   },
