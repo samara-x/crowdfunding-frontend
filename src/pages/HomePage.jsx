@@ -1,11 +1,20 @@
 import useFundraisers from "../hooks/use-fundraisers";
 import FundraiserCard from "../components/FundraiserCard";
 import "./HomePage.css";
+import { useEffect } from "react";
 
 function HomePage() {
-    const { fundraisers } = useFundraisers();
-    const { isLoading, error } = useFundraisers();
+    const location = useLocation();
+    // Call hook and get all from it
+    const { fundraisers, isLoading, error, refetch } = useFundraisers();
 
+    useEffect(() => {
+        if (location.state?.justCreated) {
+            // If the state indicates a refresh is needed, trigger a re-fetch/update logic
+            refetch();
+        }
+    }, [location.state?.justCreated]);
+    
     if (isLoading) {
         return <div>Page is loading...</div>;
     }

@@ -63,8 +63,6 @@ console.log('Form data state:', formData);
 
       await postFundraiser(dataToSend);
 
-console.log('Fundraiser created successfully with data:', dataToSend);
-
       // if the above doesn't work I had also written it out
       // 
     //try {
@@ -79,8 +77,9 @@ console.log('Fundraiser created successfully with data:', dataToSend);
 
       setSuccess('Post created successfully! While you wait for your crowd, take a look at others you could join..');
       setTimeout(() => {
-        navigate('/');
+        navigate('/', { state: { refresh: true }});
       }, 1800); //this delays the load time
+      
     } catch (err) {
       setError(err.message || 'Failed to create fundraiser. Please try again.');
       console.error(err);
