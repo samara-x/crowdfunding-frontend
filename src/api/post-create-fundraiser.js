@@ -11,7 +11,7 @@ async function postCreateFundraiser(data) {
     },
 
     body: JSON.stringify({
-      // Removed "user: f- back ends sets "owner" from token
+      // Removed "user: from back ends sets "owner" from token
       "title": data.title,
       "description": data.description,
       "goal": data.goal,

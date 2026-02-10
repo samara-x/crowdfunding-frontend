@@ -1,6 +1,8 @@
 async function getFundraiser(fundraiserId) {
   const url = `${import.meta.env.VITE_API_URL}/fundraisers/${fundraiserId}`;
   const response = await fetch(url, { method: "GET" });
+  
+console.log(response);
 
   if (!response.ok) {
     const fallbackError = `Error fetching fundraiser with id ${fundraiserId}`;

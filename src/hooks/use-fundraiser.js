@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,} from "react";
 
 import getFundraiser from "../api/get-fundraiser";
 
@@ -7,11 +7,8 @@ function useFundraiser(fundraiserId) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
 
-  const fetchFundraiser = useCallback(async () => {
+    console.log("Starting fetch for ID:", fundraiserId); // log 1
   useEffect(() => {
-    fetchFundraiser();
-  }, [fundraiserId, fetchFundraiser]);
-  
     // Here we pass the fundraiserId to the getFundraiser function.
     getFundraiser(fundraiserId)
       .then((fundraiser) => {
@@ -26,7 +23,7 @@ function useFundraiser(fundraiserId) {
     // This time we pass the fundraiserId to the dependency array so that the hook will re-run if the fundraiserId changes.
   }, [fundraiserId]);
 
-  return { fundraiser, isLoading, error, refetch : fetchFundraiser };
+  return { fundraiser, isLoading, error};
 }
 
 export default useFundraiser;
