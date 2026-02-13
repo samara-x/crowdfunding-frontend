@@ -32,7 +32,7 @@ function LoginForm() {
     setError("");
     setIsLoading(true);
 
-    if (!credentials.username ?? !credentials.password) {
+    if (!credentials.username || !credentials.password) {
       setError("Please fill in both fields");
       setIsLoading(false);
       return;

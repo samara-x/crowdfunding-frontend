@@ -16,7 +16,7 @@ async function postCreateFundraiser(data) {
       "description": data.description,
       "goal": data.goal,
       "image": data.image,
-      "is_open": data.isopen
+      "is_open": data.is_open
     }),
   });
   
