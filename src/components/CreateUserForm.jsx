@@ -16,8 +16,8 @@ function CreateUserForm() {
   const [success, setSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event) => {
-    const { id, value } = event.target;
+  const handleChange = (e) => {
+    const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [id]: value,
@@ -26,8 +26,8 @@ function CreateUserForm() {
     setSuccess("");
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log("Submitting create user form with:", formData);
 
     setError("");

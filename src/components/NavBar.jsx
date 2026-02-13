@@ -15,16 +15,16 @@ function NavBar() {
       <div className="navbar-container">
 
         {/* Logo */}
-        <Link to="/HomePage" className="logo">
+        <Link to="/" className="logo">
           <span>funding</span>four 
         </Link>
 
         {/* Desktop navigation */}
         <div className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/create-fundraiser" className="nav-link">Create</Link>
+          {/*<Link to="/about" className="nav-link">About</Link>*/}
+          {/*<Link to="/contact" className="nav-link">Contact</Link>*/}
+          <Link to="/create-fundraiser" className="nav-link">Create Post</Link>
           {auth.token ? (
               <Link to="/" onClick={handleLogout}>
                         Log Out
@@ -34,8 +34,8 @@ function NavBar() {
                 )}
           
           {/* CTA button */}
-          <Link to="/sign-up" className="btn-create">
-            Create
+          <Link to="/login" className="btn-create">
+            Join
           </Link>
         </div>
 

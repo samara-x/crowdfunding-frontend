@@ -16,12 +16,12 @@ async function postCreateFundraiser(data) {
       "description": data.description,
       "goal": data.goal,
       "image": data.image,
-      "is_open": data.isOpen
+      "is_open": data.isopen
     }),
   });
   
-console.log("Data sent to postFundraiser:", data);
-console.log("Response from postFundraiser:", response.status);
+console.log("Data sent to postCreateFundraiser:", data);
+console.log("Response from postCreateFundraiser:", response.status);
 
   if (!response.ok) {
     const fallbackError = `Error trying to post fundraiser`;

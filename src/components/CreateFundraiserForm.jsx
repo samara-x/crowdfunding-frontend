@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import postFundraiser from '../api/post-create-fundraiser';
+import postCreateFundraiser from '../api/post-create-fundraiser';
 import './CreateFundraiser.css';
 
 function CreateFundraiser() {
@@ -20,8 +20,8 @@ function CreateFundraiser() {
   const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
@@ -29,8 +29,8 @@ function CreateFundraiser() {
     setError('');
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setError('');
     setSuccess('');
     setIsLoading(true);
@@ -47,7 +47,7 @@ function CreateFundraiser() {
       return;
     }
     const goalNum = Number(formData.goal);
-    if (!formData.goal ?? isNaN(goalNum) ?? goalNum <= 0) {
+    if (!formData.goal || isNaN(goalNum) || goalNum <= 0) {
       setError('Goal must be a positive number');
       setIsLoading(false);
       return;
@@ -59,7 +59,7 @@ function CreateFundraiser() {
         goal: goalNum,
       };
 
-      await postFundraiser(dataToSend);
+      await postCreateFundraiser(dataToSend);
 
       // if the above doesn't work I had also written it out
       // 
@@ -138,13 +138,13 @@ function CreateFundraiser() {
 
           <div className="form-group">
             <label htmlFor="goal" className="form-label">
-              Funding Goal ($) *
+              Goal ($) *
             </label>
             <input
               type="number"
               id="goal"
               name="goal"
-              placeholder="e.g. 1500"
+              placeholder="e.g. 2"
               value={formData.goal}
               onChange={handleChange}
               className="form-input"
@@ -170,7 +170,7 @@ function CreateFundraiser() {
               disabled={isLoading}
             />
             <small className="help-text">
-              Use a direct image link (e.g. from Imgur, Cloudinary). Placeholder used if empty.
+              Use a direct image link ("update some examples"). Placeholder used if empty.
             </small>
           </div>
 

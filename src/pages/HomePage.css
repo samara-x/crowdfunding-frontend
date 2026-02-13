@@ -1,3 +1,5 @@
+/* HomePage.css — Updated to match single fundraiser page style & brand */
+
 :root {
   /* Brand */
   --color-primary: #2F4A5A;
@@ -19,25 +21,83 @@
   --radius-lg: 22px;
 }
 
-/* Fundraiser list container */
+Page container
+.home-page {
+  background: var(--color-bg-main);
+  min-height: 100vh;
+  padding-bottom: 120px;
+}
+
+/* ────────────────────────────────────────
+Hero Section
+───────────────────────────────────────── */
+.hero-section {
+  /*background: var(--color-bg-main);*/
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-text-inverse);
+  padding: 100px 20px 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-title .hero-accent {
+  display: block;
+  color: var(--color-accent-warm);
+  font-weight: 600;
+  margin-top: 0.4rem;
+  font-size: 0.9em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.95;
+  line-height: 1.45;
+}
+
+/* ────────────────────────────────────────
+Fundraisers Grid – horizontal spread, 3+ across
+───────────────────────────────────────── */
+.fundraisers-section {
+  padding: 60px 20px;
+}
+
 #fundraiser-list {
   --card-width: 340px;
   --card-max-width: 380px;
   --gap: 28px;
 
+  width: 10%;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 40px 16px 60px;
-  max-width: 1440px;
+  padding: 40px 16px 80px;
   box-sizing: border-box;
-  background: var(--color-bg-main);
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
   gap: var(--gap);
   justify-content: center;
+  align-content: start;
 }
 
-/* Individual fundraiser card */
+/* Card – matching detail page style */
 .fundraiser-card {
   background: var(--color-bg-surface);
   border-radius: var(--radius-lg);
@@ -50,6 +110,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 0;
+  max-width: var(--card-max-width);
 }
 
 .fundraiser-card:hover {
@@ -63,7 +125,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background-color: #f8f9fa; /* light fallback */
+  background-color: #f8f9fa;
 }
 
 .card-image img {
@@ -78,7 +140,7 @@
   transform: scale(1.04);
 }
 
-/* Content area */
+/* Content */
 .card-content {
   padding: 24px 22px;
   flex-grow: 1;
@@ -128,7 +190,7 @@
 
 .progress-fill {
   height: 100%;
-  background: var(--color-accent); /* soft green accent */
+  background: var(--color-accent);
   border-radius: 999px;
   width: 0%;
   transition: width 0.7s ease;
@@ -153,41 +215,87 @@
 }
 
 .days-left {
-  color: var(--color-accent-warm); /* warm accent for urgency */
+  color: var(--color-accent-warm);
   font-weight: 600;
 }
 
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  #fundraiser-list {
-    --card-width: 100%;
-    padding: 24px 12px;
-    gap: 20px;
-  }
-
-  .card-content {
-    padding: 20px;
-  }
-
-  .card-title {
-    font-size: 1.18rem;
-  }
-
-  .stats {
-    font-size: 0.9rem;
-  }
-
-  .amount-raised {
-    font-size: 1.08rem;
-  }
+/* Loading / Empty / Error States */
+.loading-message,
+.no-fundraisers,
+.error-message {
+  text-align: center;
+  padding: 6rem 1rem;
+  color: var(--color-text-muted);
+  font-size: 1.3rem;
 }
 
-/* When only one card (center) */
-#fundraiser-list:has(> :only-child) {
+.no-fundraisers {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* ────────────────────────────────────────
+   Footer / Trust bar
+───────────────────────────────────────── */
+.home-footer {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.home-footer p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
   display: flex;
   justify-content: center;
+  gap: 2rem;
 }
 
-#fundraiser-list:has(> :only-child) .fundraiser-card {
-  max-width: 460px;
+.footer-links a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+/* ────────────────────────────────────────
+Responsive
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 16px 100px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  #fundraiser-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 60px 16px 80px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  #fundraiser-list {
+    grid-template-columns: 1fr;
+    padding: 24px 12px;
+  }
 }

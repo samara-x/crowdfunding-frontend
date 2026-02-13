@@ -1,12 +1,14 @@
-import useFundraisers from "../hooks/use-fundraisers";
-import FundraiserCard from "../components/FundraiserCard";
-import "./HomePage.css";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import useFundraisers from "../hooks/use-fundraisers";
+import FundraiserCard from "../components/FundraiserCard";
+
+import "./HomePage.css";
 
 function HomePage() {
     const location = useLocation();
-    // Call hook and get all from it
     const { fundraisers, isLoading, error, refetch } = useFundraisers();
 
     useEffect(() => {
@@ -24,12 +26,52 @@ function HomePage() {
     }
 
     return (
-        <div id="fundraiser-list">
-            {fundraisers.map((fundraiserData, key) => {
-                return <FundraiserCard key={key} fundraiserData={fundraiserData} />;
-            })}
+    <div className="home-page">
+      /* Hero Section
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            You don't need a crowd
+            <br />
+            <span className="hero-accent">Just a few good people.</span>
+          </h1>
+
+          <p className="hero-subtitle">
+            FundingFour connects everyday ideas into support for what matters.
+          </p>
         </div>
-    );
+      </section>
+
+      Fundraisers Grid 
+      <section className="fundraisers-section" id="fundraiser-list">
+        {fundraisers.length === 0 ? (
+          <p className="no-fundraisers">No fundraisers found.</p>
+        ) : (
+          <div className="fundraiser-grid">
+            {fundraisers.map((fundraiser) => (
+              <FundraiserCard
+                key={fundraiser.id || fundraiser._id} // ← very important!
+                fundraiserData={fundraiser}
+              />
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Trust / Footer Bar */}
+      <section className="home-footer">
+        <p>
+          FundingFour is built for real people helping real causes — one small
+          group at a time.
+        </p>
+
+        <div className="footer-links">
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default HomePage;
