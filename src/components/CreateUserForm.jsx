@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import postCreateUser from "../api/post-create-user.js";
 import "./CreateUserForm.css";
 
@@ -146,9 +146,9 @@ function CreateUserForm() {
         <div className="signup-footer">
           <p>
             Already have an account?{" "}
-            <a href="/login" className="link">
+            <Link to="/login" className="link">
               Log in
-            </a>
+            </Link>
           </p>
         </div>
       </div>

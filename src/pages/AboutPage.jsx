@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function AboutPage() {
   return (
     <div className="about-page">
@@ -48,7 +50,7 @@ function AboutPage() {
       </section>
 
       <p className="closing-line">
-        Ready to start something? <a href="/start">Create your first post</a> today.
+        Ready to start something? <Link to="/start">Create your first post</Link> today.
       </p>
     </div>
   );
