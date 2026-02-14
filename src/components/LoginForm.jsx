@@ -106,7 +106,7 @@ function LoginForm() {
 
       <div className="login-footer">
         <p>
-          New here? <a href="/sign-up">Create an account</a>
+          New here? <Link to="/sign-up">Create an account</Link>
         </p>
       </div>
     </div>
