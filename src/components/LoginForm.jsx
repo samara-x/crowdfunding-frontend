@@ -1,6 +1,6 @@
 import { useState } from "react";
 import postLogin from "../api/post-login.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../hooks/use-auth.js";
 import "./LoginForm.css";
 
