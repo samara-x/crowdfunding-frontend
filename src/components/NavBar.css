@@ -1,25 +1,31 @@
 /* NavBar.css — Updated with your brand colours & current JSX structure */
 
 :root {
-  /* Brand */
-  --color-primary: #2F4A5A;
-  --color-secondary: #C8B8A6;
-  --color-accent: #6F8F7A;
-  --color-accent-warm: #C46A4A;
+  /* Brand (shared) */
+  --still-blue: #4F6475;
+  --soft-clay: #D6C1AD;
+  --quiet-moss: #7E8F78;
+  --deep-moss: #6F806A;
+  --warm-ember: #C86A45;
+  --soft-stone: #E6E6E4;
+
   /* Neutrals */
-  --color-bg-main: #F6F7F6;
+  --off-white: #F7F5F2;
   --color-bg-surface: #FFFFFF;
   --color-border: #E3E6E4;
+
   /* Text */
-  --color-text-primary: #1F2933;
-  --color-text-muted: #6B7280;
+  --color-text-primary: #2F2F2F;
+  --color-text-muted: #6A6A6A;
   --color-text-inverse: #FFFFFF;
+
   /* UI */
   --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
 }
+
 
 /* Main navbar */
 .navbar {
@@ -64,7 +70,43 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 1.5rem;
+}
+
+/* CTA shared style */
+.nav-cta {
+  margin-left: auto;
+  padding: 0.6rem 1.6rem;
+  background: var(--deep-moss);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(200, 106, 69, 0.25);
+}
+
+/* Hover */
+.nav-cta:hover {
+  background: var(--deep-moss);
+  transform: translateY(-1px);
+}
+
+/* Logged-in state (slightly calmer) */
+.nav-cta-logout {
+  background: transparent;
+  color: var(--still-blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: none;
+  border: 1px solid var(--soft-clay);
+}
+
+.nav-cta-logout:hover {
+  background: var(--soft-stone);
 }
 
 /* Individual nav links */
@@ -96,28 +138,6 @@
 .nav-link:hover::after,
 .nav-link:focus::after {
   width: 100%;
-}
-
-/* Logout link (currently using <Link to="/" onClick={handleLogout}>) */
-.nav-link.logout {
-  color: var(--color-accent-warm);
-  font-weight: 500;
-}
-
-.nav-link.logout:hover {
-  color: var(--color-primary);
-}
-
-/* Create CTA button */
-.btn-create {
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
-  font-weight: 600;
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(111, 143, 122, 0.18);
 }
 
 .btn-create:hover {

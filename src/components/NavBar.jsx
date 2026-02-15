@@ -25,22 +25,24 @@ function NavBar() {
           {/*<Link to="/about" className="nav-link">About</Link>*/}
           {/*<Link to="/contact" className="nav-link">Contact</Link>*/}
           <Link to="/create-fundraiser" className="nav-link">Create Post</Link>
+
+         {/* CTA: Login / Logout */}
           {auth.token ? (
-              <Link to="/" onClick={handleLogout}>
-                        Log Out
-                    </Link>
-                    ) : (
-                    <Link to="/login">Login</Link>
-                )}
-          
-          {/* CTA button */}
-          <Link to="/login" className="btn-create">
-            Join
-          </Link>
+            <button
+              onClick={handleLogout}
+              className="nav-cta nav-cta-logout"
+            >
+              Log Out
+            </button>
+          ) : (
+            <Link to="/login" className="nav-cta">
+              Get Started
+            </Link>
+          )}
         </div>
 
         {/* Mobile hamburger (need state + JS to toggle later) */}
-        <button className="menu-toggle" type="button">
+        <button className="menu-toggle" type="button" aria-label="Menu">
           ☰
         </button>
 

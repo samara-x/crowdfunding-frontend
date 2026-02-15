@@ -35,9 +35,9 @@ function HomePage() {
         <div className="hero-grid">
           <div className="hero-content">
             <h1 className="hero-title">
-              You don’t need a crowd
-              <br></br>
-              <span className="hero-accent">Just a few good people.</span>
+              You don’t need a crowd. 
+              {/*<br></br>*/}
+              <span className="hero-accent"> Just a few good people.</span>
             </h1>
 
             <p className="hero-subtitle">
@@ -51,8 +51,8 @@ function HomePage() {
 
           <div className="hero-image">
             <img
-              src="/images/hero-connection.jpg"
-              alt="Two people walking together along the coast"
+              src="src/images/hero-connection.png"
+              alt="a collage of people connecting and supporting each other, symbolizing the power of community and crowdfunding"
             />
           </div>
         </div>
