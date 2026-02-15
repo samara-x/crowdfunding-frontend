@@ -1,14 +1,35 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFundraiser from "../hooks/use-fundraiser";
-import "./FundraiserPage.css";
+import useAuth from "../hooks/use-auth";
+import deleteFundraiser from "../api/delete-fundraiser";
 import PledgeForm from "../components/PledgeForm";
+import "./FundraiserPage.css";
 
 function FundraiserPage() {
   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const { auth } = useAuth(); // Get current user info
   const { fundraiser, isLoading, error, refetch } = useFundraiser(id);
 
   console.log("isLoading:", isLoading);
+
+  // Check if current user is the owner of the fundraiser
+  const isOwner = auth?.user_id === fundraiser?.owner;
+
+  const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this post? This action cannot be undone.")) {
+      return;
+    }
+
+    try {
+      await deleteFundraiser(id);
+      alert("Fundraiser deleted successfully.");
+      navigate("/"); // Redirect to homepage or fundraisers list after deletion
+    } catch (err) {
+      console.error("Error deleting fundraiser:", err);
+      alert("Failed to delete fundraiser: " + err.message);
+    }
+  };
 
   // Handle loading & error states first
   if (isLoading) {
@@ -58,8 +79,21 @@ function FundraiserPage() {
       <div className="main-content">
         <h2>I want to</h2>
         <p>{fundraiser.description || "No description provided yet..."}</p>
-      </div>
-
+      
+        {/* Owner actions – only visible to owner */}
+          {isOwner && (
+            <div className="owner-actions" style={{ marginTop: "2rem" }}>
+              <button
+                onClick={handleDelete}
+                className="btn-delete"
+                disabled={isLoading}
+              >
+                Delete Fundraiser
+              </button>
+            </div>
+          )}
+        </div>
+      
       {/* Right / Sidebar – ONLY ONE of these */}
       <div className="sidebar">
         {/* Progress summary */}
@@ -87,9 +121,6 @@ function FundraiserPage() {
             This fundraiser is currently closed.
           </div>
         )}
-
-        {/* TO DO:Do I want to keep this? Optional: remove or keep Donate Now button */}
-        {/* <button className="donate-button" type="button">Donate Now</button> */}
 
         {/* Pledges list */}
         <div className="pledges-card">

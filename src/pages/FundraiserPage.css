@@ -231,6 +231,32 @@
   font-size: 1.05rem;
 }
 
+.owner-actions {
+  margin-top: 2rem;
+  text-align: center; /* or left */
+}
+
+.btn-delete {
+  padding: 12px 28px;
+  background: #e53e3e; /* red for danger */
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-delete:hover {
+  background: #c53030;
+  transform: translateY(-2px);
+}
+
+.btn-delete:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .content-grid {
