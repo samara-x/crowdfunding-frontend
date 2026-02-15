@@ -49,6 +49,10 @@ function FundraiserPage() {
   const goal = Number(fundraiser.goal) || 1000;
   const progress = goal > 0 ? Math.min((raised / goal) * 100, 100) : 0;
 
+  console.log("Fundraiser owner:", fundraiser?.owner);
+  console.log("Current user ID:", auth?.user?.id);
+  console.log("Is owner?", isOwner);
+  
   return (
   <div className="fundraiser-page">
     {/* Hero / Header Section */}
