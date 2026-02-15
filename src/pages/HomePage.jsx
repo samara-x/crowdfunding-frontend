@@ -35,7 +35,7 @@ function HomePage() {
         <div className="hero-grid">
           <div className="hero-content">
             <h1 className="hero-title">
-              You don’t need a crowd. 
+              You don’t need a crowd.
               {/*<br></br>*/}
               <span className="hero-accent"> Just a few good people.</span>
             </h1>

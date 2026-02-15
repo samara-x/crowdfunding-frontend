@@ -76,12 +76,22 @@ Hero Section
 
 .hero-title {
   font-size: clamp(3.5rem, 10vw, 6.5rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--still-blue);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-accent {
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--warm-ember);
   margin-bottom: var(--space-md);
 }
+
 .hero-subtitle {
   font-size: clamp(1.4rem, 4vw, 1.8rem);
   font-weight: 400;
@@ -132,6 +142,7 @@ Fundraisers Grid – horizontal spread, 3+ across
   gap: var(--space-lg);
   max-width: 1400px;
   margin: 0 auto;
+  padding-bottom: 55px;
 }
 
 /* Card – matching detail page style */

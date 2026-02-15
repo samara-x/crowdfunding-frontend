@@ -12,7 +12,7 @@ function NotFound() {
         This page couldn’t be found... It probably prefers smaller groups anyway.
       </p>
 
-      <Link to="/fundraiser" className="not-found-button">
+      <Link to="/" className="not-found-button">
         Find a gathering that fits
       </Link>
     </div>

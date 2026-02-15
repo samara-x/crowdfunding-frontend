@@ -12,7 +12,7 @@ function CreateFundraiser() {
     // need to add location, but will need to update in back end
     description: '',
     goal: '',
-    image: 'https://via.placeholder.com/900x400?text=Your+Image+Here',
+    image: '',
     is_open: true,
   });
 
@@ -163,7 +163,7 @@ function CreateFundraiser() {
               type="url"
               id="image"
               name="image"
-              placeholder="https://example.com/image.jpg"
+              placeholder="public/placeholder.png"
               value={formData.image}
               onChange={handleChange}
               className="form-input"
