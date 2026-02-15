@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 import useFundraisers from "../hooks/use-fundraisers";
 import FundraiserCard from "../components/FundraiserCard";
@@ -8,54 +7,74 @@ import FundraiserCard from "../components/FundraiserCard";
 import "./HomePage.css";
 
 function HomePage() {
-    const location = useLocation();
-    const { fundraisers, isLoading, error, refetch } = useFundraisers();
+  const location = useLocation();
+  const { fundraisers, isLoading, error, refetch } = useFundraisers();
 
-    useEffect(() => {
-        if (location.state?.justCreated) {
-            // If the state indicates a refresh is needed, trigger a re-fetch/update logic
-            refetch();
-        }
-    }, [location.state?.justCreated]);
-
-    if (isLoading) {
-        return <div>Page is loading...</div>;
+  useEffect(() => {
+    if (location.state?.justCreated) {
+      refetch();
     }
-    if (error) {
-        return <div>There was an error loading the fundraisers: {error.message}</div>;
-    }
+  }, [location.state?.justCreated, refetch]);
 
+  if (isLoading) {
+    return <div className="loading-message">Page is loading…</div>;
+  }
+
+  if (error) {
     return (
-    <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            You don't need a crowd
-            <br />
-            <span className="hero-accent">Just a few good people.</span>
-          </h1>
+      <div className="error-message">
+        There was an error loading the fundraisers: {error.message}
+      </div>
+    );
+  }
 
-          <p className="hero-subtitle">
-            FundingFour connects everyday ideas into support for what matters.
-          </p>
+  return (
+    <div className="home-page">
+      {/* ───────────────── Hero Section ───────────────── */}
+      <section className="hero-section">
+        <div className="hero-grid">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              You don’t need a crowd
+              <br></br>
+              <span className="hero-accent">Just a few good people.</span>
+            </h1>
+
+            <p className="hero-subtitle">
+              fundingfour connects everyday ideas into support for what matters.
+            </p>
+
+            <Link to="/fundraisers" className="hero-cta">
+              Explore fundraisers
+            </Link>
+          </div>
+
+          <div className="hero-image">
+            <img
+              src="/images/hero-connection.jpg"
+              alt="Two people walking together along the coast"
+            />
+          </div>
         </div>
       </section>
+      
+      <div className="hero-divider" />
 
-      {/* Fundraisers Grid */}
+      {/* ─────────────── Fundraisers Grid ─────────────── */}
       <section className="fundraisers-section" id="fundraiser-grid">
         {fundraisers.length === 0 ? (
           <div className="no-fundraisers">
-            <p>It's a little quiet here. No posts available at the moment.</p>
+            <p>It’s a little quiet here. No posts available at the moment.</p>
+
             <Link to="/login" className="btn-primary">
-            Create a Post
+              Create a post
             </Link>
           </div>
         ) : (
-          <div id="fundraiser-list" className="fundraiser-grid">
+          <div className="fundraiser-grid">
             {fundraisers.map((fundraiser) => (
               <FundraiserCard
-                key={fundraiser.id || fundraiser._id} // ← very important for safe key fallback!
+                key={fundraiser.id || fundraiser._id}
                 fundraiserData={fundraiser}
               />
             ))}
