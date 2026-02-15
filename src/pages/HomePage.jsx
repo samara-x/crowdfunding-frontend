@@ -27,8 +27,8 @@ function HomePage() {
 
     return (
     <div className="home-page">
-      /* Hero Section
-      <section className="hero-section">
+      {/* Hero Section */}
+      <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
             You don't need a crowd
@@ -42,33 +42,25 @@ function HomePage() {
         </div>
       </section>
 
-      Fundraisers Grid 
-      <section className="fundraisers-section" id="fundraiser-list">
+      {/* Fundraisers Grid */}
+      <section className="fundraisers-section" id="fundraiser-grid">
         {fundraisers.length === 0 ? (
-          <p className="no-fundraisers">No fundraisers found.</p>
+          <div className="no-fundraisers">
+            <p>It's a little quiet here. No posts available at the moment.</p>
+            <Link to="/login" className="btn-primary">
+            Create a Post
+            </Link>
+          </div>
         ) : (
-          <div className="fundraiser-grid">
+          <div id="fundraiser-list" className="fundraiser-grid">
             {fundraisers.map((fundraiser) => (
               <FundraiserCard
-                key={fundraiser.id || fundraiser._id} // ← very important!
+                key={fundraiser.id || fundraiser._id} // ← very important for safe key fallback!
                 fundraiserData={fundraiser}
               />
             ))}
           </div>
         )}
-      </section>
-
-      {/* Trust / Footer Bar */}
-      <section className="home-footer">
-        <p>
-          FundingFour is built for real people helping real causes — one small
-          group at a time.
-        </p>
-
-        <div className="footer-links">
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">Contact</Link>
-        </div>
       </section>
     </div>
   );

@@ -1,100 +1,137 @@
 /* HomePage.css — Updated to match single fundraiser page style & brand */
-
-:root {
-  /* Brand */
-  --color-primary: #2F4A5A;
-  --color-secondary: #C8B8A6;
-  --color-accent: #6F8F7A;
-  --color-accent-warm: #C46A4A;
-  /* Neutrals */
-  --color-bg-main: #F6F7F6;
-  --color-bg-surface: #FFFFFF;
-  --color-border: #E3E6E4;
-  /* Text */
-  --color-text-primary: #1F2933;
-  --color-text-muted: #6B7280;
-  --color-text-inverse: #FFFFFF;
-  /* UI */
-  --shadow-soft: 0 8px 24px rgba(0,0,0,0.06);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
+/* ────────────────────────────────────────
+Global & typography
+───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-Page container
-.home-page {
-  background: var(--color-bg-main);
-  min-height: 100vh;
-  padding-bottom: 120px;
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--off-white);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--still-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--deep-moss);
+  text-decoration: underline;
+}
+
+/* ────────────────────────────────────────
+Brand variables & utility classes
+───────────────────────────────────────── */
+:root {
+  /* Core brand colours */
+  --still-blue: #4F6475;
+  --soft-clay: #D6C1AD;
+  --quiet-moss: #7E8F78;
+  --deep-moss: #6F806A;
+  --warm-ember: #C86A45;
+  --soft-stone: #E6E6E4;
+  /* Utility */
+  --off-white: #F7F5F2;
+  --text-primary: #2F2F2F;
+  --text-muted: #6A6A6A;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Shadows & radii */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --radius-md: 12px;
+  --radius-lg: 20px;
 }
 
 /* ────────────────────────────────────────
 Hero Section
 ───────────────────────────────────────── */
 .hero-section {
-  /*background: var(--color-bg-main);*/
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  color: var(--color-text-inverse);
-  padding: 100px 20px 120px;
+  background: var(--off-white);
+  padding: var(--space-xl) var(--space-md);
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
   max-width: 900px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
   font-weight: 800;
-  line-height: 1.15;
-  margin: 0 0 1.5rem;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--still-blue);
+  margin-bottom: var(--space-md);
 }
-
-.hero-title .hero-accent {
-  display: block;
-  color: var(--color-accent-warm);
-  font-weight: 600;
-  margin-top: 0.4rem;
-  font-size: 0.9em;
-}
-
 .hero-subtitle {
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
   max-width: 700px;
-  margin: 0 auto 2.5rem;
-  opacity: 0.95;
-  line-height: 1.45;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--warm-ember);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 20px rgba(200, 106, 69, 0.25);
+  transition: all 0.25s ease;
+}
+
+.hero-cta:hover {
+  background: var(--deep-moss);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(111, 143, 122, 0.3);
 }
 
 /* ────────────────────────────────────────
 Fundraisers Grid – horizontal spread, 3+ across
 ───────────────────────────────────────── */
 .fundraisers-section {
-  padding: 60px 20px;
+  padding: var(--space-xl) var(--space-lg) 0;
+  background: var(--soft-stone);
 }
 
-#fundraiser-list {
-  --card-width: 340px;
-  --card-max-width: 380px;
-  --gap: 28px;
+.fundraisers-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--still-blue);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
 
-  width: 10%;
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 40px 16px 80px;
-  box-sizing: border-box;
-
+.fundraiser-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
-  gap: var(--gap);
-  justify-content: center;
-  align-content: start;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-lg);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Card – matching detail page style */
@@ -105,13 +142,11 @@ Fundraisers Grid – horizontal spread, 3+ across
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-soft);
   transition: all 0.28s ease;
-  text-decoration: none;
-  color: inherit;
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-width: 0;
-  max-width: var(--card-max-width);
+  /*min-width: 0;
+  max-width: var(--card-max-width);*/
 }
 
 .fundraiser-card:hover {
@@ -235,53 +270,51 @@ Fundraisers Grid – horizontal spread, 3+ across
 }
 
 /* ────────────────────────────────────────
-   Footer / Trust bar
+Footer > About / Contact
 ───────────────────────────────────────── */
 .home-footer {
   text-align: center;
-  padding: 60px 20px 40px;
-  background: var(--color-bg-surface);
+  padding: var(--space-m) var(--space-md);
+  background: var(--color-off-white);
   border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
 }
 
 .home-footer p {
   font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-md)
 }
 
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: var(--space-lg)
 }
 
 .footer-links a {
-  color: var(--color-accent);
-  text-decoration: none;
+  color: var(--quiet-moss);
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .footer-links a:hover {
-  color: var(--color-primary);
+  color: var(--still-blue);
 }
 
 /* ────────────────────────────────────────
 Responsive
 ───────────────────────────────────────── */
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 80px 16px 100px;
+  .hero {
+    padding: 80px var(--space-md) 100px;
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 10vw, 4rem);
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
   }
 
-  #fundraiser-list {
+  #fundraiser-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
   }
 }
 
@@ -291,11 +324,10 @@ Responsive
   }
 
   .hero-title {
-    font-size: clamp(2rem, 9vw, 3.2rem);
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
   }
 
-  #fundraiser-list {
+  #fundraiser-grid {
     grid-template-columns: 1fr;
-    padding: 24px 12px;
   }
 }
