@@ -1,5 +1,5 @@
 <div align="center">
-# FundingFour - Crowdfunding Platform
+## FundingFour - Crowdfunding Platform
 
 <p>A modern, community-focused crowdfunding platform where anyone can start or support meaningful causes — whether raising funds or requesting just a few helpful people.</p>
 
@@ -9,12 +9,14 @@
 
 [![React](https://img.shields.io/badge/React-18.3.1-blue?logo=react&logoColor=white)](https://react.dev/)
   [![Vite](https://img.shields.io/badge/Vite-5.4.8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![GitHub stars](https://img.shields.io/github/stars/samara-x/crowdfunding-frontend?style=social)](https://github.com/samara-x/crowdfunding-frontend)
   [![GitHub forks](https://img.shields.io/github/forks/samara-x/crowdfunding-frontend?style=social)](https://github.com/samara-x/crowdfunding-frontend/forks)
   [![GitHub issues](https://img.shields.io/github/issues/samara-x/crowdfunding-frontend)](https://github.com/samara-x/crowdfunding-frontend/issues)
   <!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/<your-badge-id>/deploy-status)](https://app.netlify.com/sites/your-site/deploys) -->
   </div>
+
+## 
+![Link to Depoloyed Repo](https://reliable-speculoos-b89ba1.netlify.app/)
 
 ### Concept & Purpose
 They say 3's a crowd, but what if you were wanting to expand to four? FundingFour is a lightweight crowdfunding platform designed to help individuals seek support for meaningful personal experiences in a smaller 'crowd' or to be able to post if they are needing that +1 for an event or great deal! The platform enables users to share ideas such as attending events, learning new skills, travelling, wellness activities, or small life goals, and allows supporters to be apart of it!
@@ -28,8 +30,11 @@ The focus is on connection, storytelling, and shared belief, rather than monetar
 - Supporters who want to contribute to people they know or causes they resonate with
 - Communities built around encouragement, shared values, and small meaningful goals
 
-## Live Demo
+## Screenshots
 ![Homepage](screenshots/homepage.png)
+![Create User](screenshots/createaccount.png)
+![Log In](screenshots/login.png)
+![Creat Post/Fundraiser](screenshots/createpost.png)
 
 **Frontend (Vite + React):**  
 https://reliable-speculoos-b89ba1.netlify.app/
@@ -81,17 +86,23 @@ https://fundingfourcrowds-0aa4332162ae.herokuapp.com/
 - Frontend: GitHub Pages / Netlify
 - Backend: Heroku
 
-## Project Structure
-crowdfunding-frontend/
-├── src/
-│   ├── api/                  # API helpers (postLogin, postSignup, postFundraiser, postPledge, etc.)
-│   ├── components/           # Reusable UI (FundraiserCard, PledgeForm, etc.)
-│   ├── hooks/                # Custom hooks (useAuth, useFundraiser, etc.)
-│   ├── pages/                # Page components (HomePage, FundraiserPage, LoginPage, etc.)
-│   ├── App.jsx               # Main router & layout
-│   └── main.jsx              # Entry point
-├── public/
-└── README.md
+
+```markdown
+## Folder Structure
+
+crowdfunding-frontend
+├─ public
+├─ src
+│  ├─ api           → API helpers (login, signup, create fundraiser, pledge…)
+│  ├─ components    → reusable UI (FundraiserCard, PledgeForm, Button…)
+│  ├─ hooks         → custom hooks (useAuth, useFundraiser…)
+│  ├─ pages         → route pages (HomePage, FundraiserPage, LoginPage…)
+│  ├─ App.jsx       → main layout + routing
+│  └─ main.jsx      → entry point
+└─ README.md ```
 
 ### Running Locally
 **For step by step usage guide, [click here](/local_setup.md)**
+
+### Need a quick link to see if I did indeed finish?
+I did not [click here](/react_project_spec.md)

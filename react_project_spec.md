@@ -45,9 +45,9 @@ Note that while this is a crowdfunding website, actual money transactions are ou
 To submit, fill out [this Google form](https://forms.gle/34ymxgPhdT8YXDgF6), including a link to your Github repo. Your lead mentor will respond with any feedback they can offer, and you can approach the mentoring team if you would like help to make improvements based on this feedback!
 
 Please include the following in your readme doc:
-- [ ] A link to the deployed project.
+- [x] A link to the deployed project.
 - [ ] A screenshot of the homepage
-- [ ] A screenshot of the fundraiser creation page
-- [ ] A screenshot of the fundraiser creation form
+- [x] A screenshot of the fundraiser creation page
+- [x] A screenshot of the fundraiser creation form
 - [ ] A screenshot of a fundraiser with pledges
 - [ ] A screenshot of the resulting page when an unauthorized user attempts to edit a fundraiser (optional, depending on whether or not this functionality makes sense in your app!)
