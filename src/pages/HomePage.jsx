@@ -51,7 +51,7 @@ function HomePage() {
 
           <div className="hero-image">
             <img
-              src="src/images/hero-connection.png"
+              src="/images/hero-connection.png"
               alt="a collage of people connecting and supporting each other, symbolizing the power of community and crowdfunding"
             />
           </div>

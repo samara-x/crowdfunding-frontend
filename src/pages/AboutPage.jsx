@@ -1,59 +1,103 @@
 import { Link } from "react-router-dom";
-import "./HomePage.css";
+import "./AboutPage.css";
 
 function AboutPage() {
   return (
-    <div className="about-page">
-      <h1>About FundingFour</h1>
-
-      <section>
-        <h2>Our Purpose</h2>
-        <p>
+    <main className="about-page">
+      {/* Header */}
+      <header className="about-header">
+        <h1>About Funding Four Crowds</h1>
+        <p className="about-intro">
           You don’t need a huge crowd — just a few good people who care.
         </p>
+      </header>
+
+      <div className="about-divider" />
+
+      {/* Purpose */}
+      <section className="about-section fade-in">
+        <h2>Our Purpose</h2>
         <p>
-          FundingFour exists to connect everyday people with the causes and ideas that matter most to them. 
-          Whether you're wanting to create a community garden, asking for help to run a free workshop, 
-          wanting to start small with a hobby you enjoy or finding that +1 for a trip deal! — this is the place.
+          FundingFour exists to connect everyday people with the causes and ideas
+          that matter most to them.
+        </p>
+        <p>
+          Whether you're creating a community garden, running a free workshop,
+          starting a small hobby, or finding that +1 for a trip deal — this is the
+          place where small support creates real momentum.
         </p>
       </section>
 
-      <section>
+      {/* Difference */}
+      <section className="about-section fade-in delay-1">
         <h2>What makes us different</h2>
-        <ul>
-          <li>Small is powerful — we celebrate campaigns that need just 1–3 people as much as those needing hundreds.</li>
-          <li>Real stories, real impact — every post tells a human story, not just a goal.</li>
-          <li>Local & global — location matters, but kindness doesn't have borders.</li>
-          <li>Simple & transparent — no complicated fees, no hidden rules, just people showing up for people.</li>
+        <ul className="about-list">
+          <li>
+            <strong>Small is powerful</strong> — campaigns needing just 1–3
+            people matter as much as those needing hundreds.
+          </li>
+          <li>
+            <strong>Real stories</strong> — every post represents a human moment,
+            not just a number.
+          </li>
+          <li>
+            <strong>Local & global</strong> — location matters, kindness doesn’t
+            have borders.
+          </li>
+          <li>
+            <strong>Simple & transparent</strong> — no hidden rules, just people
+            showing up.
+          </li>
         </ul>
       </section>
 
-      <section>
+      {/* Values */}
+      <section className="about-section fade-in delay-2">
         <h2>Our Values</h2>
-        <ul>
-          <li><strong>Trust</strong> — verified users, clear communication, honest updates.</li>
-          <li><strong>Community</strong> — real connection over transactions.</li>
-          <li><strong>Inclusivity</strong> — anyone can start or support a post.</li>
-          <li><strong>Kindness</strong> — every post starts with someone who believes in something bigger than themselves.</li>
+        <ul className="about-values">
+          <li>
+            <span>Trust</span>
+            <p>Verified users, clear communication, honest updates.</p>
+          </li>
+          <li>
+            <span>Community</span>
+            <p>Connection over transactions.</p>
+          </li>
+          <li>
+            <span>Inclusivity</span>
+            <p>Anyone can start or support a post.</p>
+          </li>
+          <li>
+            <span>Kindness</span>
+            <p>Every post starts with belief.</p>
+          </li>
         </ul>
       </section>
 
-      <section>
+      {/* Who We Are */}
+      <section className="about-section fade-in delay-3">
         <h2>Who we are</h2>
         <p>
-          FundingFour was created as apart of the She Codes Plus 2026 Brisbane intake by Samara,
-          who knows firsthand the power of small communities coming together to make a difference in every day life.
+          FundingFour was created as part of the She Codes Plus 2026 Brisbane
+          intake by Samara — built from firsthand experience of small communities
+          coming together to make everyday change.
         </p>
         <p>
-          We're not a big corporation — we're just people who believe in the power of community, 
-          one post (and one supporter) at a time.
+          We’re not a big corporation. We’re just people who believe that showing
+          up - even once - matters.
         </p>
       </section>
 
-      <p className="closing-line">
-        Ready to start something? <Link to="/start">Create your first post</Link> today.
-      </p>
-    </div>
+      <div className="about-divider" />
+
+      {/* CTA */}
+      <footer className="about-cta">
+        <p>
+          Ready to start something?
+          <Link to="/start"> Create your first post</Link>.
+        </p>
+      </footer>
+    </main>
   );
 }
 
