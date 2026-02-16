@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-
 import useFundraisers from "../hooks/use-fundraisers";
 import FundraiserCard from "../components/FundraiserCard";
 
+import heroImage from "../images/hero-connection.png";
 import "./HomePage.css";
 
 function HomePage() {
@@ -51,7 +51,7 @@ function HomePage() {
 
           <div className="hero-image">
             <img
-              src="/images/hero-connection.png"
+              src={heroImage}
               alt="a collage of people connecting and supporting each other, symbolizing the power of community and crowdfunding"
             />
           </div>

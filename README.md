@@ -102,7 +102,7 @@ crowdfunding-frontend
 └─ README.md ```
 
 ### Running Locally
-**For step by step usage guide, [click here](/local_setup.md)**
+**For step by step usage guide, [click here](local_setup.md)**
 
 ### Need a quick link to see if I did indeed finish?
-I did not [click here](/react_project_spec.md)
+I did not finish the **[project spec](react_project_spec.md)**
