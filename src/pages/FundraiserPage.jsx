@@ -59,9 +59,12 @@ function FundraiserPage() {
     {/* Hero / Header Section */}
     <div className="hero">
       <img
-        src={fundraiser.image || "https://postimg.cc/7JHDdthV"}
+        src={fundraiser.image || "https://i.postimg.cc/j2N5WGrG/placeholder.png"}
         alt={fundraiser.title}
         className="hero-image"
+          onError={(e) => {
+          e.target.src = "https://i.postimg.cc/j2N5WGrG/placeholder.png";
+        }}
       />
       <div className="hero-overlay">
         <h1>{fundraiser.title}</h1>
