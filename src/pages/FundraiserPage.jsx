@@ -52,6 +52,7 @@ function FundraiserPage() {
   console.log("Fundraiser owner:", fundraiser?.owner);
   console.log("Current user ID:", auth?.user?.id);
   console.log("Is owner?", isOwner);
+  console.log("Fundraiser image:", fundraiser?.image);
   
   return (
   <div className="fundraiser-page">

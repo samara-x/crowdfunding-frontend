@@ -41,7 +41,8 @@ function LoginForm() {
     postLogin(credentials.username, credentials.password)
       .then((data) => {
         window.localStorage.setItem("token", data.token);
-        setAuth({ token: data.token });
+        window.localStorage.setItem("user_id", data.user_id);
+        setAuth({ token: data.token, user_id: data.user_id });
         navigate("/");
         console.log("Login successful:", data);
       })
