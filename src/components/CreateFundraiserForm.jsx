@@ -79,7 +79,7 @@ function CreateFundraiser() {
       }, 1800); //this delays the load time
 
     } catch (error) {
-      setError(error.message || 'Failed to create fundraiser. Please try again.');
+      setError(error.message || 'Failed to create post. Please try again.');
       console.error(error);
     } finally {
       setIsLoading(false);

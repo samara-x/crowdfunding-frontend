@@ -23,7 +23,7 @@ function HomePage() {
   if (error) {
     return (
       <div className="error-message">
-        There was an error loading the fundraisers: {error.message}
+        There was an error loading posts: {error.message}
       </div>
     );
   }
@@ -45,14 +45,14 @@ function HomePage() {
             </p>
 
             <Link to="/fundraisers" className="hero-cta">
-              Explore fundraisers
+              Browse posts
             </Link>
           </div>
 
           <div className="hero-image">
             <img
               src={heroImage}
-              alt="a collage of people connecting and supporting each other, symbolizing the power of community and crowdfunding"
+              alt="a collage of people connecting and supporting each other, symbolizing the power of community"
             />
           </div>
         </div>

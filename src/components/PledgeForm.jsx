@@ -43,7 +43,7 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
         onPledgeSuccess();
       }
     } catch (err) {
-      setError(err.message || 'Failed to pledge. Did you forget to comment? Please try again.');
+      setError(err.message || 'Failed to join. Did you forget to leave a message? Please try again.');
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -52,9 +52,9 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
 
   return (
     <div className="pledge-card">
-      <h3 className="pledge-title">Support this fundraiser</h3>
+      <h3 className="pledge-title">Join this post</h3>
       <p className="pledge-subtitle">
-        Support makes a real difference — thank you for being here.
+        Your help makes a real difference — thank you for being here.
       </p>
 
       {pledgeSuccess && (
@@ -68,7 +68,7 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
       <form onSubmit={handleSubmit} className="pledge-form">
         <div className="form-group">
           <label htmlFor="amount" className="pledge-label">
-            Pledge amount ($)
+            How many people can you bring?
           </label>
           <input
             type="number"
@@ -87,13 +87,13 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
 
         <div className="form-group">
           <label htmlFor="comment" className="pledge-label">
-            Message of support (leave a comment)
+            Leave a message for the poster
           </label>
           <textarea
             id="comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder="Your comment will be posted publicly with your pledge. (Max 200 characters)"
+            placeholder="Your message will be posted publicly. (Max 200 characters)"
             maxLength={200}
             rows={3}
             className="pledge-textarea"
@@ -112,7 +112,7 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
             onChange={(e) => setAnonymous(e.target.checked)}
             disabled={isLoading}
           />
-          <label htmlFor="anonymous">Pledge anonymously</label>
+          <label htmlFor="anonymous">Join anonymously</label>
         </div>
 
         <button
@@ -120,7 +120,7 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
           className="join-button"
           disabled={isLoading}
         >
-          {isLoading ? 'Pledging...' : 'Make Pledge'}
+          {isLoading ? 'Joining...' : 'I can help!'}
         </button>
       </form>
     </div>

@@ -23,17 +23,17 @@ function FundraiserPage() {
 
     try {
       await deleteFundraiser(id);
-      alert("Fundraiser deleted successfully.");
-      navigate("/"); // Redirect to homepage or fundraisers list after deletion
+      alert("Post deleted successfully.");
+      navigate("/"); // Redirect to homepage after deletion
     } catch (err) {
-      console.error("Error deleting fundraiser:", err);
-      alert("Failed to delete fundraiser: " + err.message);
+      console.error("Error deleting post:", err);
+      alert("Failed to delete post: " + err.message);
     }
   };
 
   // Handle loading & error states first
   if (isLoading) {
-    return <div className="loading">Loading fundraiser...</div>;
+    return <div className="loading">Loading post...</div>;
   }
 
   if (error) {
@@ -41,7 +41,7 @@ function FundraiserPage() {
   }
 
   if (!fundraiser) {
-    return <div className="not-found">Fundraiser not found</div>;
+    return <div className="not-found">Post not found</div>;
   }
 
   // Safe calculations
@@ -75,7 +75,7 @@ function FundraiserPage() {
             day: "numeric",
           })}
           <span className={`status-badge ${fundraiser.is_open ? "status-open" : "status-closed"}`}>
-            {fundraiser.is_open ? "Active" : "Closed"}
+            {fundraiser.is_open ? "Open for helpers" : "No longer needed"}
           </span>
         </div>
       </div>
@@ -96,7 +96,7 @@ function FundraiserPage() {
                 className="btn-delete"
                 disabled={isLoading}
               >
-                Delete Fundraiser
+                Delete Post
               </button>
             </div>
           )}
@@ -108,14 +108,14 @@ function FundraiserPage() {
         <div className="progress-card">
           <div className="progress-header">
             <h3>Progress</h3>
-            <span className="raised-amount">${raised.toLocaleString()}</span>
+            <span className="raised-amount">{raised} {raised === 1 ? "person" : "people"} joined</span>
           </div>
-          <div className="goal-amount">of ${goal.toLocaleString()} goal</div>
+          <div className="goal-amount">of {goal} people needed</div>
 
           <div className="progress-bar-container">
             <div className="progress-bar" style={{ width: `${progress}%` }} />
           </div>
-          <div className="percentage">{Math.round(progress)}% raised</div>
+          <div className="percentage">{Math.round(progress)}% filled</div>
         </div>
 
         {/* Pledge form – separate block, below progress */}
@@ -126,25 +126,25 @@ function FundraiserPage() {
           />
         ) : (
           <div className="closed-notice">
-            This fundraiser is currently closed.
+            This post is no longer accepting helpers.
           </div>
         )}
 
         {/* Pledges list */}
         <div className="pledges-card">
-          <h3>Pledges ({fundraiser.pledges?.length || 0})</h3>
+          <h3>Helpers ({fundraiser.pledges?.length || 0})</h3>
 
           {fundraiser.pledges?.length > 0 ? (
             <ul className="pledge-list">
               {fundraiser.pledges.map((pledge, index) => (
                 <li key={index} className="pledge-item">
-                  <span className="pledge-amount">${Number(pledge.amount).toLocaleString()}</span>
+                  <span className="pledge-amount">{Number(pledge.amount)} {Number(pledge.amount) === 1 ? "person" : "people"}</span>
                   <span className="pledge-supporter">from {pledge.supporter || "Anonymous"}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            <div className="no-pledges">No pledges yet — be the first!</div>
+            <div className="no-pledges">No one has joined yet — be the first!</div>
           )}
         </div>
       </div>

@@ -94,7 +94,7 @@ function AboutPage() {
       <footer className="about-cta">
         <p>
           Ready to start something?
-          <Link to="/start"> Create your first post</Link>.
+          <Link to="/create-fundraiser"> Create your first post</Link>.
         </p>
       </footer>
     </main>
