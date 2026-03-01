@@ -8,7 +8,7 @@ function FundraiserCard(props) {
     return (
         <div className="fundraiser-card">
             <Link to={fundraiserLink}>
-                <img src={fundraiserData.image} alt={fundraiserData.title} />
+                <img src={fundraiserData.image || "/images/placeholder.png"} alt={fundraiserData.title + "fundraiser cover image"} />
                 <h3>{fundraiserData.title}</h3>
             </Link>
         </div>

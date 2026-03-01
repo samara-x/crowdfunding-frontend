@@ -30,6 +30,9 @@ console.log("Response from postCreateFundraiser:", response.status);
       throw new Error(fallbackError);
     });
 
+    if (response.status === 401) {
+      throw new Error("You will need to login first to create a post");
+    }
     const errorMessage = data?.detail ?? fallbackError;
     throw new Error(errorMessage);
   }

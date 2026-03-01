@@ -138,7 +138,7 @@ function CreateFundraiser() {
 
           <div className="form-group">
             <label htmlFor="goal" className="form-label">
-              Goal ($) *
+              How many to join your crowd? *
             </label>
             <input
               type="number"
@@ -163,14 +163,14 @@ function CreateFundraiser() {
               type="url"
               id="image"
               name="image"
-              placeholder="public/placeholder.png"
+              placeholder="https://example.com/your-image.jpg"
               value={formData.image}
               onChange={handleChange}
               className="form-input"
               disabled={isLoading}
             />
             <small className="help-text">
-              Use a direct image link ("update some examples"). Placeholder used if empty.
+              Paste a direct image URL (must start with https://). A placeholder will be used if left empty.
             </small>
           </div>
 

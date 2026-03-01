@@ -69,9 +69,13 @@ Hero Section
   justify-content: center;
 }
 
-.hero-content {
-  max-width: 900px;
+.hero-content > * {
+  width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-title {
@@ -103,8 +107,12 @@ Hero Section
 }
 
 .hero-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 1rem 2.5rem;
+  justify-content: center;
+  width: fit-content;
+  margin-top: var(--space-lg);
   background: var(--warm-ember);
   color: white;
   font-size: 1.25rem;
@@ -119,6 +127,20 @@ Hero Section
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(111, 143, 122, 0.3);
 }
+
+.hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.hero-image img {
+  width: 100%;
+  width: auto;
+  height: auto;
+}
+
 
 /* ────────────────────────────────────────
 Fundraisers Grid – horizontal spread, 3+ across
@@ -315,30 +337,63 @@ Footer > About / Contact
 /* ────────────────────────────────────────
 Responsive
 ───────────────────────────────────────── */
-@media (max-width: 768px) {
-  .hero {
-    padding: 80px var(--space-md) 100px;
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: auto;
+    padding: var(--space-lg) var(--space-md);
   }
 
-  .hero-title {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
+  .hero-title,
+  .hero-accent {
+    font-size: clamp(3rem, 8vw, 4.8rem);
   }
 
-  #fundraiser-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .fundraisers-section {
+    padding: var(--space-lg) var(--space-md) 0;
+  }
+
+  .fundraiser-grid {
+    gap: var(--space-md);
   }
 }
 
-@media (max-width: 480px) {
+/* Tablets & large phones */
+@media (max-width: 768px) {
   .hero-section {
-    padding: 60px 16px 80px;
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
   }
 
-  .hero-title {
-    font-size: clamp(2.4rem, 11vw, 3.8rem);
+  .hero-title,
+  .hero-accent {
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    line-height: 1.1;
   }
 
-  #fundraiser-grid {
-    grid-template-columns: 1fr;
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-cta {
+    font-size: 1.1rem;
+    padding: 0.9rem 2rem;
+  }
+
+  .fundraiser-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .stats {
+    font-size: 0.9rem;
   }
 }

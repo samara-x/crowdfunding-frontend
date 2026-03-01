@@ -58,7 +58,7 @@ function FundraiserPage() {
     {/* Hero / Header Section */}
     <div className="hero">
       <img
-        src={fundraiser.image || "public/placeholder.png"}
+        src={fundraiser.image || "https://postimg.cc/7JHDdthV"}
         alt={fundraiser.title}
         className="hero-image"
       />
