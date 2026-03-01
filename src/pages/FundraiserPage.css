@@ -150,10 +150,17 @@
   margin-bottom: 12px;
 }
 
-.raised-amount {
-  font-size: 2.1rem;
+.joined-amount {
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--color-primary);
+  line-height: 1; 
+}
+
+.joined-count {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
 }
 
 .goal-amount {

@@ -19,7 +19,7 @@ function ContactPage() {
         <ul className="contact-methods">
           <li>
             <strong>Email</strong>
-            <span>hello@fundingfour.com</span>
+            <span>hello@fourcrowds.com</span>
           </li>
           <li>
             <strong>Message us</strong>
@@ -89,7 +89,7 @@ function ContactPage() {
 
         <div className="social-links">
           <a
-            href="https://instagram.com/fundingfour"
+            href="https://instagram.com/fourcrowds"
             target="_blank"
             rel="noopener noreferrer"
           >

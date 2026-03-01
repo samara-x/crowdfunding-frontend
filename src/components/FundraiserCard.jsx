@@ -15,7 +15,7 @@ function FundraiserCard(props) {
 
                 <div className="card-footer">
                 <span className={fundraiserData.is_open ? "badge-open" : "badge-closed"}>
-                    {fundraiserData.is_open ? "Open for helpers" : "No longer needed"}
+                    {fundraiserData.is_open ? "Open" : "No longer needed"}
                     </span>
                     <span className="card-supporters">
                     {fundraiserData.pledges?.length || 0} people joined

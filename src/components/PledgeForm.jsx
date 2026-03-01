@@ -54,12 +54,12 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
     <div className="pledge-card">
       <h3 className="pledge-title">Join this post</h3>
       <p className="pledge-subtitle">
-        Your help makes a real difference — thank you for being here.
+        You're making a difference — thank you for being here.
       </p>
 
       {pledgeSuccess && (
         <div className="pledge-success">
-          Thank you! You've supported this post.
+          Thank you! You've joined this post.
         </div>
       )}
 
@@ -77,7 +77,7 @@ function PledgeForm({ fundraiserId, onPledgeSuccess }) {
             onChange={(e) => setAmount(e.target.value)}
             placeholder=""
             min="1"
-            max="1000"
+            max="3"
             step="1"
             className="pledge-input.       "
             required

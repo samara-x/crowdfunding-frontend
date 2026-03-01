@@ -18,7 +18,7 @@ function AboutPage() {
       <section className="about-section fade-in">
         <h2>Our Purpose</h2>
         <p>
-          FundingFour exists to connect everyday people with the causes and ideas
+          Funding Four Crowds exists to connect everyday people with the causes and ideas
           that matter most to them.
         </p>
         <p>

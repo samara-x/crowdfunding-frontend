@@ -85,7 +85,7 @@ function FundraiserPage() {
     <div className="content-grid">
       {/* Left / Main content */}
       <div className="main-content">
-        <h2>I want to</h2>
+        <h2>What this post is about</h2>
         <p>{fundraiser.description || "No description provided yet..."}</p>
       
         {/* Owner actions – only visible to owner */}
@@ -108,7 +108,8 @@ function FundraiserPage() {
         <div className="progress-card">
           <div className="progress-header">
             <h3>Progress</h3>
-            <span className="raised-amount">{raised} {raised === 1 ? "person" : "people"} joined</span>
+            <span className="joined-amount">{raised}</span>
+            <span className="joined-count">{raised === 1 ? "person" : "people"} joined</span>
           </div>
           <div className="goal-amount">of {goal} people needed</div>
 

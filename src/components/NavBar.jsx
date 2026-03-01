@@ -16,7 +16,7 @@ function NavBar() {
 
         {/* Logo */}
         <Link to="/" className="logo">
-          <span>funding</span>four 
+          <span>four</span>crowds
         </Link>
 
         {/* Desktop navigation */}
